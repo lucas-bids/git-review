@@ -41,7 +41,16 @@ async function main() {
             for (let hunk of patch.hunks) {
                 const changes = hunk.lines.join('\n');
                 const review = await generateReview(changes);
-                console.log('\x1b[34m ' + review.content + ' \x1b[0m');
+                const lines = review.content.split('\n');
+                for (let line of lines) {
+                    if (line.startsWith('```') && line.endsWith('```')) {
+                        // Imprimir blocos de código em amarelo
+                        console.log('\x1b[33m' + line + '\x1b[0m');
+                    } else {
+                        // Imprimir o restante do texto em azul
+                        console.log('\x1b[34m' + line + '\x1b[0m');
+                    }
+                }
             }
         }
     }
