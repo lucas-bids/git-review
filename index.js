@@ -17,15 +17,10 @@ async function generateReview(code) {
     let space = `\x1b`
     const response = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
-        messages: [{role: "user", content: `Review the following JavaScript code:\n\n${code}\n, based on good practices, performance and clean code. Please note that the response will be logged in the terminal's console, so format the text accordingly.`}],
+        messages: [{role: "user", content: `Review the following JavaScript code:\n\n${code}\n, based on good practices, performance and clean code. Please note that the response will be logged in the terminal's console, so format the text accordingly. Always wrap code blocks with the ANSI code for yellow`}],
         max_tokens: 200,
       });
-      let message = response.data.choices[0].message.content;
-
-      // Identifica e destaca blocos de código
-      message = message.replace(/`(.+?)`/g, '\x1b[33m`$1`\x1b[0m');
-  
-      return message;
+    return response.data.choices[0].message;
 }
 
 // Função para obter as diferenças do último commit

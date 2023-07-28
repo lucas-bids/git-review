@@ -1,14 +1,16 @@
-// program to generate a multiplication table
+//JavaScript program to swap two variables
 
-// take input from the user
-const number = parseInt(prompt('Enter an integer: '));
+//take input from the users
+let a = prompt('Enter the first variable: ');
+let b = prompt('Enter the second variable: ');
 
-//creating a multiplication table
-for(let i = 1; i <= 10; i++) {
+//create a temporary variable
+let temp;
 
-    // multiply i with number
-    const result = i * number;
+//swap variables
+temp = a;
+a = b;
+b = temp;
 
-    // display the result
-    console.log(`${number} * ${i} = ${result}`);
-}
+console.log(`The value of a after swapping: ${a}`);
+console.log(`The value of b after swapping: ${b}`);
