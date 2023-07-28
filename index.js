@@ -51,7 +51,7 @@ async function main() {
 function formatContent(content) {
     // Utilizamos regex para identificar blocos de código markdown
     const regex = /(`[^`]*`)/gm;
-    const subst = '\x1b[33m$1\x1b[0m';
+    const subst = '\x1b[33m$1\x1b[34m';
     const result = content.replace(regex, subst);
     return '\x1b[34m ' + result + ' \x1b[34m';
   }
