@@ -19,7 +19,7 @@ async function generateReview(code) {
     messages: [
       {
         role: 'user',
-        content: `Imagine you are a senior fullstack developer. Review the following JavaScript code:\n\n${code}\n, based on good practices, performance, clean code and readability. Please note that the response will be logged in the terminal's console, so format the text accordingly. Always give alternatives when you find problematic code`,
+        content: `Imagine you are a senior fullstack developer. Review the following code:\n\n${code}\n, based on good practices, performance, clean code and readability. Please note that the response will be logged in the terminal's console, so format the text accordingly. Always give alternatives when you find problematic code`,
       },
     ],
     max_tokens: 2000,
