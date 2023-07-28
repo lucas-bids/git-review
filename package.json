@@ -9,8 +9,5 @@
     "dev": "nodemon app.js"
   },
   "author": "Lucas Vidal e Leonardo Oneda",
-  "license": "ISC",
-  "dependencies": {
-    "chatgpt-api": "^0.0.6"
-  }
+  "license": "ISC"
 }
