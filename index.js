@@ -41,7 +41,7 @@ async function main() {
             for (let hunk of patch.hunks) {
                 const changes = hunk.lines.join('\n');
                 const review = await generateReview(changes);
-                console.log('\x1b[34m ' + review.content + ' \x1b[34m');
+                console.log('\x1b[34m ' + review.content + ' \x1b[0m');
             }
         }
     }
