@@ -20,7 +20,12 @@ async function generateReview(code) {
         messages: [{role: "user", content: `Review the following JavaScript code:\n\n${code}\n, based on good practices, performance and clean code. Please note that the response will be logged in the terminal's console, so format the text accordingly.`}],
         max_tokens: 200,
       });
-    return response.data.choices[0].message;
+      let message = response.data.choices[0].message.content;
+
+      // Identifica e destaca blocos de código
+      message = message.replace(/`(.+?)`/g, '\x1b[33m`$1`\x1b[0m');
+  
+      return message;
 }
 
 // Função para obter as diferenças do último commit
