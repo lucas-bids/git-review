@@ -9,5 +9,10 @@
     "dev": "nodemon app.js"
   },
   "author": "Lucas Vidal e Leonardo Oneda",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "diff": "^5.1.0",
+    "openai": "^3.3.0",
+    "simple-git": "^3.19.1"
+  }
 }
