@@ -41,19 +41,19 @@ async function main() {
             for (let hunk of patch.hunks) {
                 const changes = hunk.lines.join('\n');
                 const review = await generateReview(changes);
-                const lines = review.content.split('\n');
-                for (let line of lines) {
-                    if (line.startsWith('```') && line.endsWith('```')) {
-                        // Imprimir blocos de código em amarelo
-                        console.log('\x1b[33m' + line + '\x1b[0m');
-                    } else {
-                        // Imprimir o restante do texto em azul
-                        console.log('\x1b[34m' + line + '\x1b[0m');
-                    }
-                }
+                let reviewContentFormatted = formatContent(review.content);
+                console.log(reviewContentFormatted);
             }
         }
     }
 }
+
+function formatContent(content) {
+    // Utilizamos regex para identificar blocos de código markdown
+    const regex = /(```[\s\S]*?```)/gm;
+    const subst = '\x1b[33m$1\x1b[0m';
+    const result = content.replace(regex, subst);
+    return '\x1b[34m ' + result + ' \x1b[0m';
+  }
 
 main();
