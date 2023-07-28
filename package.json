@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "This package is a pre-push git hook that analyzes your commits and gives suggestions on how to improve them using AI.",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"

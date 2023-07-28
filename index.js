@@ -1,19 +1,23 @@
 #!/usr/bin/env node
 
-const openai = require('openai');
+const { Configuration, OpenAIApi } = require("openai");
+
 const git = require('simple-git');
 const diff = require('diff');
 
-openai.apiKey = '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';
+const configuration = new Configuration({
+  apiKey: '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',
+});
+const openai = new OpenAIApi(configuration);
 
 // Função para gerar revisão de código com a API da OpenAI
 async function generateReview(code) {
-    const response = await openai.Completion.create({
-        engine: 'davinci-codex',
-        prompt: `Review the following JavaScript code:\n\n${code}\n`,
-        max_tokens: 150,
-    });
-    return response.choices[0].text;
+    const response = await openai.createChatCompletion({
+        model: 'gpt-3.5-turbo',
+        messages: [{role: "user", content: `Review the following JavaScript code:\n\n${code}\n`}],
+        max_tokens: 200,
+      });
+    return response.data.choices[0].message;
 }
 
 // Função para obter as diferenças do último commit

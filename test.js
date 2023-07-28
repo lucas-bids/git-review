@@ -1,7 +1,7 @@
-let txt2='oi'
+let txt3='oi'
 
-function testFn(text2) {
-    console.log(text2);
+function testFn(text3) {
+    console.log(text3);
 };
 
-testFn(txt2);
+testFn(txt3);
