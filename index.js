@@ -14,7 +14,7 @@ const openai = new OpenAIApi(configuration);
 async function generateReview(code) {
     const response = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
-        messages: [{role: "user", content: `Review the following JavaScript code:\n\n${code}\n, based on good practices, performance and clean code. Please note that the response will be logged in the terminal's console, so format the text accordingly in yellow.`}],
+        messages: [{role: "user", content: `Review the following JavaScript code:\n\n${code}\n, based on good practices, performance and clean code. Please note that the response will be logged in the terminal's console, so format the text accordingly. Set the output color to be green using ANSI Escape Codes.`}],
         max_tokens: 200,
       });
     return response.data.choices[0].message;
