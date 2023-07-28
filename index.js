@@ -17,7 +17,7 @@ async function generateReview(code) {
     let space = `\x1b`
     const response = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
-        messages: [{role: "user", content: `Review the following JavaScript code:\n\n${code}\n, based on good practices, performance and clean code. Please note that the response will be logged in the terminal's console, so format the text accordingly. Always wrap code blocks with the ANSI code for yellow`}],
+        messages: [{role: "user", content: `Review the following JavaScript code:\n\n${code}\n, based on good practices, performance and clean code. Please note that the response will be logged in the terminal's console, so format the text accordingly.`}],
         max_tokens: 200,
       });
     return response.data.choices[0].message;
