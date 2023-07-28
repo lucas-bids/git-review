@@ -1,0 +1,15 @@
+#!/bin/sh
+echo "Do you want your commits to be reviewed by ChatGPT? (y/n)"
+read confirmation < /dev/tty
+    if [ "$confirmation" == "y" ] || [ "$confirmation" == "Y" ]; then
+        node git-review.js
+        echo "Do you want to proceed pushing the commits? (y/n)"
+        read confirmation < /dev/tty
+            if [ "$confirmation" == "y" ] || [ "$confirmation" == "Y" ]; then
+                exit 0
+            else
+                exit 1
+            fi
+    else
+        exit 0
+    fi

@@ -14,7 +14,6 @@ const openai = new OpenAIApi(configuration);
 
 // Função para gerar revisão de código com a API da OpenAI
 async function generateReview(code) {
-    let space = `\x1b`
     const response = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
         messages: [{role: "user", content: `Review the following JavaScript code:\n\n${code}\n, based on good practices, performance and clean code. Please note that the response will be logged in the terminal's console, so format the text accordingly. Always insert the code block you are referring to.`}],
