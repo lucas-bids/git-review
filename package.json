@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "This package is a pre-push git hook that analyzes your commits and gives suggestions on how to improve them using AI.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "Lucas Vidal e Leonardo Oneda",
   "license": "ISC",
