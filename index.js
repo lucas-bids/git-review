@@ -42,7 +42,7 @@ async function main() {
                 const changes = hunk.lines.join('\n');
                 const review = await generateReview(changes);
                 let reviewContentFormatted = formatContent(review.content);
-                console.log(reviewContentFormatted);
+                console.log(`${reviewContentFormatted} + \x1b[0m`);
             }
         }
     }
@@ -53,7 +53,7 @@ function formatContent(content) {
     const regex = /(`[^`]*`)/gm;
     const subst = '\x1b[33m$1\x1b[0m';
     const result = content.replace(regex, subst);
-    return '\x1b[34m ' + result + ' \x1b[0m';
+    return '\x1b[34m ' + result + ' \x1b[34m';
   }
 
 main();
