@@ -38,3 +38,30 @@ if (sum == number) {
 else {
     console.log(`${number} is not an Armstrong number.`);
 }
+
+// program to check an Armstrong number of n digits
+
+// take an input
+const number2 = prompt("Enter a positive integer");
+const number2OfDigits = number2.length;
+let sum1 = 0;
+
+// create a temporary variable
+let temp3 = number2;
+
+while (temp3 > 0) {
+
+    let remainder = temp3 % 10;
+
+    sum1 += remainder ** number2OfDigits;
+
+    // removing last digit from the number2
+    temp3 = parseInt(temp3 / 10); // convert float into integer
+}
+
+if (sum1 == number2) {
+    console.log(`${number2} is an Armstrong number2`);
+}
+else {
+    console.log(`${number2} is not an Armstrong number.`);
+}
